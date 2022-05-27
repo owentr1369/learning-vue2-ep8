@@ -2,7 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld />
-    <UserComp />
+    <UserComp v-bind:myName="myName" />
+    <button @click="changeName">Change Name</button>
   </div>
 </template>
 
@@ -12,10 +13,14 @@ import UserComp from "./components/UserComp.vue";
 export default {
   name: "App",
   components: { HelloWorld, UserComp },
-
+  data() {
+    return {
+      myName: "Tam",
+    };
+  },
   methods: {
     changeName() {
-      this.name = "Cmm";
+      this.myName = "Cmm";
     },
   },
 };
