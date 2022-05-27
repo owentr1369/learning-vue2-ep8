@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld />
-    <UserComp v-bind:myName="myName" />
+    <UserComp v-bind:customName="myName" />
     <button @click="changeName">Change Name</button>
   </div>
 </template>
@@ -15,7 +15,12 @@ export default {
   components: { HelloWorld, UserComp },
   data() {
     return {
-      myName: "Tam",
+      customName: {
+        type: Object,
+        required: true,
+        // Required = true phai co du lie, neu khong co se loi
+        default: "Tam",
+      },
     };
   },
   methods: {
